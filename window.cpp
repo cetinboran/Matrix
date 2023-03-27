@@ -50,9 +50,11 @@ void Window::loop(){
 		else if(command == "!det"){
 			this->det(data);
 		}
+		/*
 		else if(command == "!free"){			
 			free.loop();
 		}
+		*/
 	}
 }
 
