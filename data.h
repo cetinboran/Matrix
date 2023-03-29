@@ -3,10 +3,13 @@
 
 #include "matris.h"
 
+
+class Matris;
+
 class Data{
 	private:
 		int id;
-		vector<Matris> Matrises;
+		std::vector<Matris> Matrises;
 		
 	public:	
 		Data();

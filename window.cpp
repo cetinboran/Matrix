@@ -20,6 +20,10 @@ void Window::loop(){
 	
 	Data data;
 	
+	// Static Method
+	Matris::takeFromList(data);
+	
+	
 	cout << "You can use '!help' command!\n";
 	while(!over){
 		Free free(data);

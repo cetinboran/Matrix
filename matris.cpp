@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <fstream>
 #include "matris.h"
+#include "data.h"
 
 Matris::Matris(arr2d Value){
 	this->id = -1;
@@ -53,6 +55,39 @@ Matris::Matris(double number, int row, int col, bool error){
 	if(error == true){
 		this->id = -1;
 	}
+}
+
+void Matris::takeFromList(Data &data){
+	// ilk 2 input row col sonrasý deðerler
+	ifstream input("MatrisList.txt");
+	double value;
+	
+	
+	while(input >> value){
+		int row = value;
+		
+		input >> value;
+		int col = value;
+		
+		vector<vector<double>> matris;
+		vector<double> matris_row;
+		
+		for(int i = 0; i < row; i++){
+			for(int j = 0; j < col; j++){
+				input >> value;
+				matris_row.push_back(value);
+			}
+			matris.push_back(matris_row);
+			matris_row.clear();
+		}
+		
+		Matris x(matris);
+		
+		data.addData(x);
+	}
+	
+	return;
+	
 }
 
 int* Matris::getSize(){

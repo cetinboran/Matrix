@@ -4,12 +4,14 @@
 #include <iostream>
 #include <vector>
 #include "double.h"
+#include "data.h"
 
 using namespace std;
 
 typedef vector<vector<double>> arr2d;
 
 class Double;
+class Data;
 
 class Matris{
 	private:
@@ -25,7 +27,8 @@ class Matris{
 		Matris operator*(Matris &other);
 		Matris operator*(Double &other);
 		Matris operator-(Matris &other);
-		
+	
+		static void takeFromList(Data &data);
 		void printMatris();
 		void listMatris();
 		void transpoze();
