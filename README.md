@@ -23,8 +23,4 @@ First value is row and the second value is matrix col.
 The rest of is the value of matrix.
 
 Ex:
-3 3 1 0 0 0 1 0 0 0 1 
-
-[ 1 0 0 ]
-[ 0 1 0 ]
-[ 0 0 1 ]
+3 3 1 0 0 0 1 0 0 0 1 -> [ 1 0 0 ][ 0 1 0 ][ 0 0 1 ]
