@@ -10,7 +10,7 @@ int main() {
 	cout << "Welcome\n";
 	
 	Window window;
-	window.loop();
+	window.loop("eu");
 	
 	return 0;
 }

@@ -75,8 +75,7 @@ bool handle_pr(string s){
 		}
 		else{
 			if(!prt.empty()){
-				char top = prt.top();
-				
+				char top = prt.top();				
 				if((int) top + 2 == (int) s[i] && s[i] != ')'){
 					prt.pop();
 				}

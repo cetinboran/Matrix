@@ -5,10 +5,10 @@
 
 class Window{
 	public:
-		void loop();
+		void loop(std::string lang);
 		
 		// Commands
-		void help();
+		void help(std::string lang = "eu");
 		void create(Data &data);
 		void add(Data &data);
 		void multiply(Data &data);

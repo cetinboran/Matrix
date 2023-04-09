@@ -15,8 +15,9 @@ bool canMultiply(Matris x, Matris y);
 bool canDet(Matris x);
 int validId(int index, Data &data);
 
-void Window::loop(){
+void Window::loop(string lang){
 	bool over = false;
+	string help = lang == "eu" ? "You can use '!help' command!\n":"Yardim istemek icin '!yardim'' komutunu kullanabilirsin.";
 	
 	Data data;
 	
@@ -24,7 +25,8 @@ void Window::loop(){
 	Matris::takeFromList(data);
 	
 	
-	cout << "You can use '!help' command!\n";
+	
+	cout << help;
 	while(!over){
 		Free free(data);
 		string command;
@@ -36,8 +38,8 @@ void Window::loop(){
 		if(command == "!quit" || command == "!q"){
 			over = true;
 		}
-		else if(command == "!help"){
-			this->help();
+		else if(command == "!help" || command == "!yardim"){
+			this->help(lang);
 		}
 		else if(command == "!create" || command == "!c"){
 			this->create(data);
@@ -45,10 +47,10 @@ void Window::loop(){
 		else if(command == "!list"){
 			data.listData();
 		}
-		else if(command == "!add"){
+		else if(command == "!add" || command == "!topla"){
 			this->add(data);
 		}
-		else if(command == "!multiply"){
+		else if(command == "!multiply" || command == "!carp"){
 			this->multiply(data);
 		}
 		else if(command == "!det"){
@@ -62,14 +64,25 @@ void Window::loop(){
 	}
 }
 
-void Window::help(){
-	cout << "- !create / !c to create a matris.\n";
-	cout << "- !list to list all matris in database.\n";
-	cout << "- !add to add matrises.\n";
-	cout << "- !multiply to add matrises.\n";
-	cout << "- !det to determinant matris.\n";
-	//cout << "- !free to calculate easily.\n";
-	cout << "-> !quit / !q to exit.\n";
+void Window::help(string lang){
+	if(lang == "tr"){
+		cout << "- Matris olusturmak icin !yap yaz.\n";
+		cout << "- Veritabanýndaki matrisleri görmek icin !liste yaz.\n";
+		cout << "- Matrisleri toplamak icin !topla yaz.\n";
+		cout << "- Matrisleri carpmak icin !carp yaz.\n";
+		cout << "- Matrislerin determinantýný almak icin !det yaz.\n";
+		//cout << "- !free to calculate easily.\n";
+		cout << "-> Cikmak icin !quit / !q yaz.\n";
+	}
+	else if(lang == "eu"){
+		cout << "- !create / !c to create a matris.\n";
+		cout << "- !list to list all matris in database.\n";
+		cout << "- !add to add matrises.\n";
+		cout << "- !multiply to add matrises.\n";
+		cout << "- !det to determinant matris.\n";
+		//cout << "- !free to calculate easily.\n";
+		cout << "-> !quit / !q to exit.\n";
+	}
 }
 
 void Window::multiply(Data &data){
@@ -299,7 +312,6 @@ int* getSize(string &text){
 		
 		break;
 	}
-	
 	
 	// Converting row and col to int
 	for(int i = 0; i < row.length(); i++){
