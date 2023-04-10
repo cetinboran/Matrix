@@ -41,10 +41,10 @@ void Window::loop(string lang){
 		else if(command == "!help" || command == "!yardim"){
 			this->help(lang);
 		}
-		else if(command == "!create" || command == "!c"){
+		else if(command == "!create" || command == "!c" || command == "!yap"){
 			this->create(data);
 		}
-		else if(command == "!list"){
+		else if(command == "!list" || command == "!liste"){
 			data.listData();
 		}
 		else if(command == "!add" || command == "!topla"){
@@ -67,7 +67,7 @@ void Window::loop(string lang){
 void Window::help(string lang){
 	if(lang == "tr"){
 		cout << "- Matris olusturmak icin !yap yaz.\n";
-		cout << "- Veritabanýndaki matrisleri görmek icin !liste yaz.\n";
+		cout << "- Veritabanindaki matrisleri gormek icin !liste yaz.\n";
 		cout << "- Matrisleri toplamak icin !topla yaz.\n";
 		cout << "- Matrisleri carpmak icin !carp yaz.\n";
 		cout << "- Matrislerin determinantýný almak icin !det yaz.\n";
